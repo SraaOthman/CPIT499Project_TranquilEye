@@ -1,0 +1,35 @@
+
+{
+  "manifest_version": 3,
+  "name": "TranquilEye",
+  "version": "1.0",
+  "description": "TranquilEye ",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+  "https://www.youtube.com/*",
+  "https://www.googleapis.com/*"
+]
+,
+  "background": {
+      "service_worker": "background.js"
+  },
+  "content_scripts": [
+      {
+          "matches": ["https://www.youtube.com/*"],
+          "js": ["content.js"]
+      }
+  ],
+  "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+          "16": "eye.png",
+          "48": "eye.png",
+          "128": "eye.png"
+      }
+  }
+  
+}
+
+
+
+
