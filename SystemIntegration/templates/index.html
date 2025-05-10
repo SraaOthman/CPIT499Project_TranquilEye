@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ترانكويل آي</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles1.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header -->
+<header class="sticky-header">
+  <div class="container">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/TranquilEyeLogo.svg') }}" alt="شعار ترانكويل آي">
+    </div>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#why">لماذا ترانكويل آي؟</a></li>
+        <li><a href="#how">كيف يعمل</a></li>
+        <li><a href="#effects">أثر التحفيز الزائد</a></li>
+        {% if session.get('email') %}
+          <li><a href="{{ url_for('dashboard') }}">لوحة التحكم</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    {% if session.get('email') %}
+      <div class="welcome-msg">
+        👋 أهلاً، {{ session.get('name') }}
+      </div>
+      <div class="login-btn">
+        <a href="{{ url_for('logout') }}" class="btn">تسجيل الخروج</a>
+      </div>      
+    {% else %}
+      <div class="login-btn">
+        <a href="{{ url_for('signup') }}" class="btn">تسجيل الدخول / التسجيل</a>
+      </div>
+    {% endif %}
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <img src="{{ url_for('static', filename='images/TranquilEye.svg') }}" alt="TranquilEye" class="brand-image" />
+    <p class="hero-description">
+      ترانكويل آي تحلل فيديوهات الأطفال تلقائيًا لاكتشاف التحفيز الزائد وتنبيه الآباء لحماية أطفالهم من آثار التحفيز الزائد.
+    </p>
+    <a href="https://chrome.google.com/webstore" target="_blank" class="btn download-btn">تحميل الإضافة</a>
+  </div>
+</section>
+
+
+
+<!-- Effects of Overstimulation -->
+<section class="overstim-effects">
+    <h2>لماذا الحماية من التحفيز الزائد مهمة؟</h2>
+  
+    <div class="effects-grid">
+  
+      <div class="effect-box">
+        <img src="{{ url_for('static', filename='images/hyperactivity.svg') }}" alt="مشاهد سريعة" class="effect-icon">
+        <h3>مشاهد سريعة</h3>
+        <p>
+          أظهرت الدراسات أن المشاهد السريعة في وسائل الإعلام ترتبط بقصر مدة الانتباه وزيادة فرط الحركة لدى الأطفال.
+          <br>
+          <small>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10353947/" target="_blank">
+            Source: PMC – Effects of Excessive Screen Time on Child Development
+            </a>
+          </small>
+        </p>
+      </div>
+  
+      <div class="effect-box">
+        <img src="{{ url_for('static', filename='images/despersion.svg') }}" alt="حوار مفرط" class="effect-icon">
+        <h3>حوار مفرط</h3>
+        <p>
+          الحوار المكثف والمستمر في المحتوى الإعلامي قد يُربك الأطفال ويُضعف قدرتهم على الفهم والمعالجة الذهنية.
+          <br>
+          <small>
+            <a href="https://www.teacherhorizons.com/advice/screen-time-and-mental-health?utm_source" target="_blank">
+            Source: Teacher Horizons – Screen Time and Mental Health
+            </a>
+          </small>
+        </p>
+      </div>
+  
+      <div class="effect-box">
+        <img src="{{ url_for('static', filename='images/stress.svg') }}" alt="مؤثرات صوتية" class="effect-icon">
+        <h3>مؤثرات صوتية</h3>
+        <p>
+          الاستخدام المفرط للموسيقى والمؤثرات الصوتية يرتبط بزيادة التوتر والانفعالات لدى المراهقين.
+          <br>
+          <small>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10434992/" target="_blank">
+            Source: PMC – Influence of Music on Adolescent Mental Health
+            </a>
+          </small>
+        </p>
+      </div>
+  
+      <div class="effect-box">
+        <img src="{{ url_for('static', filename='images/insomnia.svg') }}" alt="النوم والتنظيم العاطفي" class="effect-icon">
+        <h3>النوم والتنظيم العاطفي</h3>
+        <p>
+          أظهر البحث أن التعرض المفرط للمحتوى البصري السريع قد يؤثر سلبًا على التنظيم العاطفي وجودة النوم لدى الأطفال.
+          <br>
+          <small>
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0190740920302450" target="_blank">
+            Source: ScienceDirect – Visual Social Media and Youth Mental Health
+            </a>
+          </small>
+        </p>
+      </div>
+  
+      <div class="effect-box">
+        <img src="{{ url_for('static', filename='images/anxiety.svg') }}" class="effect-icon">
+
+        <h3>القلق والاكتئاب</h3>
+        <p>
+          تُشير الأبحاث الحديثة إلى أن المحتوى الرقمي السريع والمكثف يساهم في ارتفاع معدلات القلق والاكتئاب بين الأطفال والمراهقين.
+          <br>
+          <small>
+            <a href="https://time.com/7172831/the-anxious-generation/" target="_blank">
+              Source: TIME – The Anxious Generation
+            </a>
+          </small>
+        </p>
+      </div>
+  
+    </div>
+  </section>
+  
+<!-- Why TranquilEye -->
+<section id="why" class="about-services">
+    <div class="container about-container">
+      <h2>لماذا ترانكويل آي؟</h2>
+      <p class="about-description">
+        نحن نقدم حلاً بسيطًا وفعالًا لحماية الأطفال من التحفيز البصري المفرط باستخدام تقنيات ذكية تحلل الفيديوهات فورياً وتقوم بتنبيه الوالدين.
+      </p>
+    </div>
+  
+    <div class="services-grid">
+      <div class="service-box">
+        <h2>تحليل المحتوى الفوري</h2>
+        <p>تحليل مقاطع الفيديو أثناء المشاهدة وتحديد التحفيز المفرط تلقائيًا.</p>
+      </div>
+  
+      <div class="service-box">
+        <h2>فلترة المحتوى غير المناسب</h2>
+        <p>فلترة الفيديوهات التي تحتوي على تحفيز زائد.</p>
+      </div>
+  
+      <div class="service-box">
+        <h2>تقارير للوالدين</h2>
+        <p>لوحة تحكم لعرض تاريخ المشاهدة وتحليل المحتوى.</p>
+      </div>
+    </div>
+  </section>
+
+  
+<!-- How it Works + Download -->
+<section id="how" class="steps-section">
+  <h2>كيف يعمل ترانكويل آي على متصفح Chrome:</h2>
+  <div class="steps-container">
+    {% set steps = [
+      "تحميل وتثبيت الإضافة على متصفح Chrome",
+      "تتفعل الإضافة تلقائيًا أثناء مشاهدة فيديوهات اليتيوب ",
+      "تحليل محتوى الفيديو وتحديد مستوى التحفيز",
+      "إعادة التوجيه عند وجود تحفيز زائد",
+      "عرض تقارير المشاهدة في لوحة التحكم"
+    ] %}
+    
+    {% for i in range(1, 6) %}
+    <div class="step">
+      <div class="icon-frame">
+        <img src="{{ url_for('static', filename='images/' + i|string + '.svg') }}" alt="خطوة {{ i }}">
+      </div>
+      <p>{{ steps[i-1] }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+  <div class="download-container">
+    <div class="download-image">
+      <img src="{{ url_for('static', filename='images/parents.png') }}" alt="أهالي يشاهدون مع أطفالهم" />
+    </div>
+    <div class="download-text">
+      <h2>ابدأ الآن بحماية طفلك من التحفيز الزائد</h2>
+      <p>قم بتنزيل إضافة ترانكويل آي الآن من متجر Chrome.</p>
+      <a href="https://chrome.google.com/webstore" class="btn download-btn" target="_blank">تحميل الإضافة</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

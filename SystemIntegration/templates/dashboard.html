@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>لوحة تحكم الوالدين - TranquilEye</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="sticky-header">
+    <div class="container">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='images/TranquilEyeLogo.svg') }}" alt="شعار ترانكويل آي">
+      </div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="{{ url_for('index') }}">الرئيسية</a></li>
+        </ul>
+      </nav>
+      <div class="welcome-msg">
+        👋 أهلاً، {{ session.get('name') }}
+      </div>
+      <div class="login-btn">
+        <a href="{{ url_for('logout') }}" class="btn">تسجيل الخروج</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="dashboard">
+    <h1 class="dashboard-title">سجل المشاهدة وتحليل التحفيز المفرط</h1>
+
+    <table id="history-table">
+      <thead>
+        <tr>
+          <th>عنوان الفيديو</th>
+          <th>اسم القناة</th>
+          <th>رابط يوتيوب</th>
+          <th>مستوى التحفيز</th>
+          <th>الإجراء المتخذ</th>
+          <th>🗑️</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for report in reports %}
+        <tr>
+          <td>{{ report.channel_name }}</td>
+          <td>{{ report.youtube_title }}</td>
+          <td><a href="{{ report.youtube_url }}" target="_blank">📺 مشاهدة</a></td>
+          <td class="{{ report.stimulation_level|lower }}">{{ report.stimulation_level }}</td>
+          <td>{{ report.action_taken }}</td>
+          <td>
+            <form method="POST" action="{{ url_for('delete_report', report_id=report.reportID) }}">
+              <button type="submit" class="delete-btn">🗑️</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      
+    </table>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>إنشاء حساب - ترانكويل آي</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="sticky-header">
+    <div class="container">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='images/TranquilEyeLogo.svg') }}" alt="شعار ترانكويل آي">
+      </div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="{{ url_for('index') }}">الرئيسية</a></li>
+        </ul>
+      </nav>
+      <div class="login-btn">
+        <a href="{{ url_for('login') }}" class="btn">تسجيل الدخول</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="auth-container">
+    <div class="auth-box">
+      <img src="{{ url_for('static', filename='images/openEye.svg') }}" alt="شعار" class="auth-logo" id="authLogo">
+      <h2>إنشاء حساب جديد</h2>
+
+      <!-- Error messages for users -->
+      {% for message in get_flashed_messages() %}
+      <div class="error-message">{{ message }}</div>
+      {% endfor %}
+
+
+      <!-- Combined Form and Processing -->
+      <form method="POST" action="{{ url_for('signup') }}">
+        <label for="name">الاسم</label>
+        <input type="text" id="name" name="name" required placeholder="اكتب اسمك الكامل">
+
+        <label for="name">البريد الإلكتروني</label>
+        <input type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="example@gmail.com"
+          pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+          title="يجب استخدام بريد إلكتروني من Gmail فقط">
+
+          <label for="password">كلمة المرور</label>
+          <input type="password"
+          id="password"
+          name="password"
+          required
+          title="يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل، حرف كبير، حرف صغير، ورقم.">   
+
+        <label for="confirmPassword">تأكيد كلمة المرور</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+        <button type="submit" class="btn">تسجيل</button>
+      </form>
+
+      <p>لديك حساب؟ <a href="{{ url_for('login') }}">تسجيل الدخول</a></p>
+    </div>
+  </section>
+
+  <script>
+    const passwordInput = document.getElementById('password');
+    const logo = document.getElementById('authLogo');
+    passwordInput.addEventListener('input', () => {
+      logo.src = passwordInput.value.length > 0 
+        ? '{{ url_for("static", filename="images/closedEye.svg") }}'
+        : '{{ url_for("static", filename="images/openEye.svg") }}';
+    });
+  </script>
+
+</body>
+</html>
