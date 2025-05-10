@@ -1,0 +1,162 @@
+/* ==========================
+   Global Styles
+   ========================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Amiri', serif;
+    direction: rtl;
+}
+
+/* Full-Page Background */
+body {
+    background: url('../images/bg.png') no-repeat center top;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #082567;
+    text-align: right;
+    padding-top: 80px; /* Space for sticky header */
+}
+
+/* ==========================
+   Sticky Header
+   ========================== */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #082567;
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+/* Logo (Right-Aligned) */
+.logo {
+    flex: 0 0 auto;
+}
+
+.logo img {
+    width: 150px;
+}
+
+/* Navigation Menu (Right-Aligned, Next to Logo) */
+.nav-menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start; /* Aligns menu next to the logo */
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Log Out Button (Left-Aligned) */
+.login-btn {
+    margin-left: auto; /* Pushes log out button to the far left */
+}
+
+.btn {
+    background: #FFD700;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #082567;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.welcome-msg {
+    color: white;
+    font-weight: bold;
+    margin-left: 20px; /* 👈 adds space between greeting and button */
+  }
+
+/* ==========================
+   Dashboard Section
+   ========================== */
+.dashboard {
+    width: 90%;
+    margin: 70px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #082567;
+    margin-bottom: 20px;
+}
+
+/* ==========================
+   Overstimulation Data Table
+   ========================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #0056b3;
+    color: white;
+}
+
+/* Overstimulation Levels */
+.low { color: green; font-weight: bold; }
+.medium { color: orange; font-weight: bold; }
+.high { color: red; font-weight: bold; }
+
+/* Delete Button */
+.delete-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: darkred;
+}
+
+/* ==========================
+   Responsive Design
+   ========================== */
+@media (max-width: 900px) {
+    .dashboard { width: 95%; }
+    th, td { font-size: 0.9rem; }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}

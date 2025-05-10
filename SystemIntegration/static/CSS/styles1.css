@@ -1,0 +1,348 @@
+/* ==========================
+   Global Styles
+   ========================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Amiri', serif;
+    direction: rtl;
+  }
+  
+  body {
+    background: url('../images/bg.png') no-repeat center top;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #082567;
+    text-align: right;
+  }
+  
+  /* ==========================
+     Sticky Header
+     ========================== */
+  .sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #082567;
+    padding: 15px 0;
+    z-index: 1000;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+  }
+  
+  .logo {
+    flex: 0 0 auto;
+  }
+  
+  .logo img {
+    width: 150px;
+  }
+  
+  .nav-menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+  }
+  
+  .nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .login-btn {
+    margin-left: auto;
+  }
+  
+  .btn {
+    background: #FFD700;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #082567;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .hero .btn {
+    margin-bottom: 10px; /* decrease from whatever it was */
+  }
+  
+  
+  /* ==========================
+     Hero Section
+     ========================== */
+     .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 55vh;
+      text-align: center;
+      flex-direction: column;
+      padding: 90px 20px 2px; /* changed bottom padding to 10px */
+    }
+
+  .brand-image {
+    width: 350px;
+    margin-bottom: 15px;
+  }
+  
+  .hero-description {
+    font-size: 1.5rem;
+    color: #082567;
+    width: 60%;
+    text-align: center;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+  }
+  .welcome-msg {
+    color: white;
+    font-weight: bold;
+    margin-left: 20px; /* 👈 adds space between greeting and button */
+  }
+  
+  /* ==========================
+     About Us / Why TranquilEye
+     ========================== */
+  .about-services {
+    background: #fefefe;
+    padding: 80px 0;
+    text-align: center;
+    color: #082567;;
+  }
+  
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-container h2 {
+    margin-bottom: 20px;  /* المسافة بين العنوان والنص */
+    font-size: 2rem;      /* تحسين حجم العنوان إذا رغبت */
+}
+
+  
+  .about-description {
+    font-size: 1.2rem;
+    color: #082567;;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+  }
+  
+  .services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 10px;
+  }
+  .services-grid h2{
+    
+    margin: 20px;
+  }
+  
+  
+  .service-box {
+    background: #082567;
+    color: white;
+    width: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* ==========================
+     Overstimulation Effects Section
+     ========================== */
+  .overstim-effects {
+    padding: 80px 20px;
+    background: #5780C0;
+    text-align: center;
+  }
+  
+  .overstim-effects h2 {
+    color: #fefefe;
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
+  .effects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .effect-box {
+    width: 250px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .effect-box img {
+    width: 60px;
+    margin-bottom: 15px;
+  }
+  
+  .effect-box h3 {
+    color: #082567;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .effect-box p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+  }
+  .effect-icon {
+    width: 110px !important;
+    height: 110px !important;
+    margin-bottom: 15px;
+    display: block;
+  }
+  
+  
+  
+  /* ==========================
+     Steps Section
+     ========================== */
+  .steps-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: #D6E6FF;
+  }
+  
+  .steps-section h2 {
+    font-size: 1.8rem;
+    color: #082567;
+    margin-bottom: 30px;
+  }
+  
+  .steps-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 30px;
+  }
+  
+  .step {
+    text-align: center;
+    width: 180px;
+  }
+  
+  .icon-frame {
+    width: 100px;
+    height: 100px;
+    background: #082567;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  
+  .icon-frame img {
+    width: 60px;
+    height: auto;
+  }
+  
+  .step p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #082567;
+    margin-top: 10px;
+  }
+  
+  /* ==========================
+     Download CTA Section
+     ========================== */
+     .download-container {
+      display: flex;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin: 40px auto;
+      max-width: 900px;
+    }
+
+    .download-image {
+      flex-shrink: 0;
+      margin-left: 20px; /* 👉 space between image and text */
+    }
+        .download-image img {
+      width: 350px;
+      border-radius: 10px;
+    }
+    
+    .download-text {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .download-text h2,
+    .download-text p {
+      margin: 10px 0;
+    }
+    
+    .download-btn {
+      background: #FFD700;
+      color: #082567;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    
+  
+  /* ==========================
+     Responsive Design
+     ========================== */
+  @media (max-width: 900px) {
+    .services-grid,
+    .steps-container,
+    .effects-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .download-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .download-image img {
+      width: 250px;
+    }
+  
+    .nav-menu ul {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
